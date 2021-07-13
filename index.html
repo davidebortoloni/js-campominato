@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css'
+        integrity='sha512-usVBAd66/NpVNfBge19gws2j6JZinnca12rAe2l+d+QkLU9fiG02O1X8Q6hepIpr/EYKZvKx/I9WsnujJuOmBA=='
+        crossorigin='anonymous' />
+    <title>Campo minato</title>
+</head>
+
+<body>
+    <div class="container text-center">
+        <div class="row gy-3">
+            <div class="col-12">
+                <h1>Campo minato</h1>
+            </div>
+            <div class="col-12">
+                <div id="number-section">
+                    <label for="number" class="d-block mb-2">Scegli un numero tra 1 e 100</label>
+                    <input id="number" type="number" min="1" max="100" value="1">
+                </div>
+            </div>
+            <div class="col-12">
+                <button id="submit" class="btn btn-dark py-3 px-5 rounded-pill">Invia</button>
+                <button id="reset" class="d-none btn btn-dark py-3 px-5 rounded-pill">Gioca ancora</button>
+                <h4 id="message" class="mt-3"></h4>
+            </div>
+        </div>
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
