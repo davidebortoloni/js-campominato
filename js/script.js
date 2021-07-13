@@ -23,17 +23,15 @@ difficultyButton.addEventListener("click", function () {
     }
     mines = [];
     attempts = [];
-    while (mines.length < 16) {
-        const number = randomNumber();
-        if (!mines.includes(number)) {
-            mines.push(number);
-        }
-    }
+
+    fillMines(mines);
+
     difficultySection.classList.add("d-none");
     difficultyButton.classList.add("d-none");
     numberSection.classList.remove("d-none");
     submitButton.classList.remove("d-none");
-    numberField.value = "";
+    numberField.value = "1";
+    numberField.max = total;
 })
 submitButton.addEventListener("click", function () {
     const userNumber = parseInt(numberField.value);
@@ -66,16 +64,7 @@ resetButton.addEventListener("click", function () {
     resetButton.classList.add("d-none");
 })
 
-function isValid(num) {
-    if (num <= 0 || num > total) {
-        alert("Inserire un numero compreso tra 1 e 100");
-        return false;
-    }
-    return true;
-}
-function randomNumber() {
-    return Math.floor(Math.random() * 100) + 1;
-}
+
 function displayRadioValue(name) {
     var ele = document.getElementsByName(name);
     for (i = 0; i < ele.length; i++) {
@@ -83,4 +72,22 @@ function displayRadioValue(name) {
             return ele[i].value;
         }
     }
+}
+function fillMines(mines) {
+    while (mines.length < 16) {
+        const number = randomNumber();
+        if (!mines.includes(number)) {
+            mines.push(number);
+        }
+    }
+}
+function randomNumber() {
+    return Math.floor(Math.random() * 100) + 1;
+}
+function isValid(num, total) {
+    if (num <= 0 || num > total) {
+        alert("Inserire un numero compreso tra 1 e " + total);
+        return false;
+    }
+    return true;
 }
