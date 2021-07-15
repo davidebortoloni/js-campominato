@@ -1,10 +1,11 @@
-numberSection = document.getElementById("number-section");
-numberField = document.getElementById("number");
-difficultySection = document.getElementById("difficulty-section");
-difficultyButton = document.getElementById("start");
-submitButton = document.getElementById("submit");
-resetButton = document.getElementById("reset");
-message = document.getElementById("message");
+const numberSection = document.getElementById("number-section");
+const numberLabel = document.getElementById("number-label");
+const numberField = document.getElementById("number");
+const difficultySection = document.getElementById("difficulty-section");
+const difficultyButton = document.getElementById("start");
+const submitButton = document.getElementById("submit");
+const resetButton = document.getElementById("reset");
+const message = document.getElementById("message");
 let total;
 let mines = [];
 let attempts = [];
@@ -32,6 +33,7 @@ difficultyButton.addEventListener("click", function () {
     submitButton.classList.remove("d-none");
     numberField.value = "1";
     numberField.max = total;
+    numberLabel.innerHTML = "Scegli un numero tra 1 e " + total;
 })
 submitButton.addEventListener("click", function () {
     const userNumber = parseInt(numberField.value);
@@ -63,7 +65,6 @@ resetButton.addEventListener("click", function () {
     difficultyButton.classList.remove("d-none");
     resetButton.classList.add("d-none");
 })
-
 
 function displayRadioValue(name) {
     var ele = document.getElementsByName(name);
