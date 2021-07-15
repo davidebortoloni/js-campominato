@@ -1,6 +1,7 @@
 const numberSection = document.getElementById("number-section");
 const numberLabel = document.getElementById("number-label");
 const numberField = document.getElementById("number");
+const nextNumber = document.getElementById("next-number");
 const difficultySection = document.getElementById("difficulty-section");
 const difficultyButton = document.getElementById("start");
 const submitButton = document.getElementById("submit");
@@ -32,7 +33,7 @@ difficultyButton.addEventListener("click", function () {
     numberSection.classList.remove("d-none");
     submitButton.classList.remove("d-none");
     numberField.value = "1";
-    numberField.max = total;
+    numberField.setAttribute("max", total);
     numberLabel.innerHTML = "Scegli un numero tra 1 e " + total;
 })
 submitButton.addEventListener("click", function () {
@@ -52,12 +53,22 @@ submitButton.addEventListener("click", function () {
                 if (attempts.length === (total) - (mines.length)) {
                     message.innerHTML = "Grande, punteggio massimo! <br>" + attempts.length * 10 + " punti";
                     numberSection.classList.add("d-none");
-                    submitButton.classList.add("d-none");
                     resetButton.classList.remove("d-none");
+                } else {
+                    numberField.setAttribute("disabled", true);
+                    nextNumber.classList.remove("d-none");
                 }
+                submitButton.classList.add("d-none");
             }
         }
     }
+})
+nextNumber.addEventListener("click", function () {
+    message.innerHTML = "";
+    nextNumber.classList.add("d-none");
+    submitButton.classList.remove("d-none");
+    numberField.removeAttribute("disabled");
+    numberField.value = "";
 })
 resetButton.addEventListener("click", function () {
     message.innerHTML = "";
